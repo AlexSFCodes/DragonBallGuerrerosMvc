@@ -1,0 +1,33 @@
+@model IEnumerable<DragonBallGuerrerosMvc.Models.Tecnica>
+
+@{
+    ViewBag.Title = "Técnicas";
+}
+
+<h2>Técnicas</h2>
+
+<p>
+    @Html.ActionLink("Crear nuevo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.TecnicaId }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.TecnicaId }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.TecnicaId })
+        </td>
+    </tr>
+}
+
+</table>
